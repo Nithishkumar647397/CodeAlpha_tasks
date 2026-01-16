@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUNAssist Modern Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-neutral" id="bodyRoot">
+    <div class="app-shell">
+        <header class="header">
+            <h1 class="title">SUNAssist Modern Calculator</h1>
+            <p class="subtitle">Smart • Dynamic • Keyboard Friendly</p>
+        </header>
+
+        <!-- CALCULATOR + HISTORY SIDE BY SIDE -->
+        <main class="calc-shell">
+            <!-- MAIN CALCULATOR CARD (LEFT) -->
+            <section class="glass-card">
+                <!-- Top status line -->
+                <div class="status-bar">
+                    <span class="status-dot" id="statusDot"></span>
+                    <span class="status-text" id="statusText">Ready</span>
+                    <span class="status-mode" id="modeText">Standard</span>
+                </div>
+
+                <!-- Display -->
+                <div class="display">
+                    <div class="expression" id="expressionDisplay">0</div>
+                    <div class="result" id="resultDisplay">0</div>
+                </div>
+
+                <!-- Button Grid -->
+                <div class="button-grid">
+                    <button class="btn btn-func" data-action="clear">AC</button>
+                    <button class="btn btn-func" data-action="clear-entry">CE</button>
+                    <button class="btn btn-func" data-action="invert">±</button>
+                    <button class="btn btn-op" data-op="÷">÷</button>
+
+                    <button class="btn" data-num="7">7</button>
+                    <button class="btn" data-num="8">8</button>
+                    <button class="btn" data-num="9">9</button>
+                    <button class="btn btn-op" data-op="×">×</button>
+
+                    <button class="btn" data-num="4">4</button>
+                    <button class="btn" data-num="5">5</button>
+                    <button class="btn" data-num="6">6</button>
+                    <button class="btn btn-op" data-op="-">−</button>
+
+                    <button class="btn" data-num="1">1</button>
+                    <button class="btn" data-num="2">2</button>
+                    <button class="btn" data-num="3">3</button>
+                    <button class="btn btn-op" data-op="+">+</button>
+
+                    <button class="btn btn-zero" data-num="0">0</button>
+                    <button class="btn" data-num=".">.</button>
+                    <button class="btn btn-equals" data-action="equals">=</button>
+                </div>
+
+                <!-- Small bottom hints strip -->
+                <div class="hint-bar">
+                    <div class="hint">
+                        <span class="hint-label">⏎</span>
+                        <span class="hint-text">Enter = Evaluate</span>
+                    </div>
+                    <div class="hint">
+                        <span class="hint-label">⌫</span>
+                        <span class="hint-text">Backspace = Delete</span>
+                    </div>
+                    <div class="hint">
+                        <span class="hint-label">Esc</span>
+                        <span class="hint-text">Clear All</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HISTORY PANEL (RIGHT) -->
+            <aside class="history-panel">
+                <div class="history-card">
+                    <div class="history-header">
+                        <h2>History</h2>
+                        <button
+                            class="history-clear"
+                            id="clearHistoryBtn"
+                            title="Clear history"
+                        >
+                            Clear
+                        </button>
+                    </div>
+                    <p class="history-sub">Last 10 calculations</p>
+                    <div class="history-list" id="historyList">
+                        <p class="history-empty">No calculations yet.</p>
+                    </div>
+                    <p class="history-tip">
+                        Tip: Click an item to load its result back into the calculator.
+                    </p>
+                </div>
+            </aside>
+        </main>
+
+        <!-- BOTTOM INFO / NORMAL KEYWORDS SECTION -->
+        <section class="info-panel">
+            <div class="info-card">
+                <h2>Quick Guide</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h3>Basic Operations</h3>
+                        <p>
+                            Use <span class="kwd">+</span>,
+                            <span class="kwd">−</span>,
+                            <span class="kwd">×</span>,
+                            <span class="kwd">÷</span> buttons or your keyboard to
+                            perform addition, subtraction, multiplication, and division.
+                        </p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Keyboard Shortcuts</h3>
+                        <ul>
+                            <li><code>0–9</code> &amp; <code>.</code> — numbers</li>
+                            <li><code>+</code> <code>-</code> <code>*</code> <code>/</code> — operators</li>
+                            <li><code>Enter</code> / <code>=</code> — equals</li>
+                            <li><code>Esc</code> / <code>Delete</code> — clear all</li>
+                            <li><code>Backspace</code> — remove last digit</li>
+                        </ul>
+                    </div>
+                    <div class="info-item">
+                        <h3>Smart Display</h3>
+                        <p>
+                            Top line shows the full expression (for example
+                            <span class="kwd">12 × 5 =</span>), bottom line shows the
+                            current result. The background color reacts to the
+                            operation you are using.
+                        </p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Modes</h3>
+                        <p>
+                            <span class="kwd">Standard</span> mode supports chained
+                            operations like <span class="kwd">2 + 3 × 4</span> with
+                            instant results and error handling (division by zero).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
