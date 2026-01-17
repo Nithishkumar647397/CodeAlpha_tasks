@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+    <title>SUNAssist Music Player</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="aurora-bg">
+        <div class="app-shell">
+            <header class="header">
+                <h1 class="title">SUNAssist Music Player</h1>
+                <p class="subtitle">Modern JavaScript Music Player</p>
+            </header>
+
+            <main class="layout">
+                <!-- LEFT: MAIN PLAYER -->
+                <section class="player-card">
+                    <!-- Top status -->
+                    <div class="player-header">
+                        <div class="status-chip">
+                            <span class="status-dot"></span>
+                            <span id="statusText">Ready</span>
+                        </div>
+                        <div class="mode-chip">
+                            <span id="playlistName">Love</span> •
+                            <span id="trackIndexLabel">1 / 1</span>
+                        </div>
+                    </div>
+
+                    <!-- Cover + meta -->
+                    <div class="player-main">
+                        <div class="cover-wrapper">
+                            <div class="cover-neon"></div>
+                            <img
+                                id="coverImage"
+                                src=""
+                                alt="Cover"
+                                class="cover-image"
+                            />
+                        </div>
+
+                        <div class="track-meta">
+                            <h2 id="trackTitle" class="track-title">Track Title</h2>
+                            <p id="trackArtist" class="track-artist">
+                                Artist Name
+                            </p>
+                            <p id="trackAlbum" class="track-album">
+                                Playlist • Year
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Time & progress -->
+                    <div class="time-row">
+                        <span id="currentTime">0:00</span>
+                        <span id="duration">0:00</span>
+                    </div>
+
+                    <div class="progress-wrapper">
+                        <div class="progress-bg"></div>
+                        <div class="progress-fill" id="progressFill"></div>
+                        <input
+                            type="range"
+                            id="progressBar"
+                            min="0"
+                            max="100"
+                            value="0"
+                        />
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="controls-row">
+                        <button
+                            class="icon-btn"
+                            id="prevBtn"
+                            title="Previous"
+                        >
+                            ⏮
+                        </button>
+                        <button
+                            class="play-btn"
+                            id="playPauseBtn"
+                            title="Play"
+                        >
+                            ▶
+                        </button>
+                        <button
+                            class="icon-btn"
+                            id="nextBtn"
+                            title="Next"
+                        >
+                            ⏭
+                        </button>
+                    </div>
+
+                    <!-- Volume + hints -->
+                    <div class="bottom-row">
+                        <div class="volume">
+                            <span id="volIcon" class="vol-icon">🔉</span>
+                            <input
+                                type="range"
+                                id="volumeSlider"
+                                min="0"
+                                max="1"
+                                step="0.01"
+                                value="0.8"
+                            />
+                        </div>
+                        <div class="hotkeys">
+                            <span>Space: Play/Pause</span>
+                            <span>← / →: Prev / Next</span>
+                        </div>
+                    </div>
+
+                    <!-- Hidden audio element -->
+                    <audio id="audio"></audio>
+                </section>
+
+                <!-- RIGHT: PLAYLIST -->
+                <aside class="playlist-card">
+                    <div class="playlist-header">
+                        <h2>Playlists</h2>
+                        <label class="autoplay-toggle">
+                            <input type="checkbox" id="autoplayToggle" checked />
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-label">Autoplay</span>
+                        </label>
+                    </div>
+
+                    <!-- Tabs -->
+                    <div class="playlist-tabs">
+                        <button class="playlist-tab active" data-list="love">
+                            Love
+                        </button>
+                        <button class="playlist-tab" data-list="vibe">
+                            Vibe
+                        </button>
+                        <button class="playlist-tab" data-list="drive">
+                            Drive
+                        </button>
+                    </div>
+
+                    <ul id="playlist" class="playlist-list">
+                        <!-- JS will inject tracks here -->
+                    </ul>
+
+                    <p class="playlist-note">
+                        Click a track to play. Autoplay moves to the next track on
+                        finish.
+                    </p>
+                </aside>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
